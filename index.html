@@ -24,62 +24,152 @@
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ElQuini Numbers - Conversor Cuaterno</title>
+<title>ElQuini Numbers - 3 Tablas</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:radial-gradient(ellipse at top,#12325f 0%,#0a1f3a 50%,#061325 100%);color:#fff;font-family:'Outfit',sans-serif;min-height:100vh;padding:20px}
-.h{max-width:500px;margin:0 auto;text-align:center;padding:20px 0}
-.logo{font-size:42px;font-weight:900;letter-spacing:-1px}
-.logo span{color:#facc15;text-shadow:0 0 20px #facc1588}
-.sub{color:#7aa0c8;margin:8px 0 20px;font-size:14px;letter-spacing:2px;text-transform:uppercase}
-.card{background:linear-gradient(180deg,#1a3e6e 0%,#132f5a 100%);border:1.5px solid #facc15aa;border-radius:28px;padding:24px;box-shadow:0 20px 60px #0008, inset 0 1px 0 #ffffff22;max-width:500px;margin:0 auto}
-.lab{color:#facc15;font-weight:700;font-size:13px;letter-spacing:1.5px;margin-bottom:10px;display:block}
-.inp{width:100%;background:#0a1f3a;border:2px solid #2a4a7a;border-radius:16px;padding:18px;font-size:36px;font-weight:900;letter-spacing:8px;text-align:center;color:#fff;outline:none;transition:.2s}
+body{background:radial-gradient(ellipse at top,#12325f 0%,#0a1f3a 50%,#061325 100%);color:#fff;font-family:'Outfit',sans-serif;min-height:100vh;padding:14px}
+.wrap{max-width:600px;margin:0 auto}
+.logo{font-size:34px;font-weight:900;text-align:center;margin:10px 0 2px;letter-spacing:-1px}
+.logo span{color:#facc15;text-shadow:0 0 18px #facc1588}
+.sub{text-align:center;color:#7aa0c8;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.card{background:linear-gradient(180deg,#1a3e6e 0%,#132f5a 100%);border:1.5px solid #facc15aa;border-radius:24px;padding:16px;box-shadow:0 20px 60px #0008,inset 0 1px 0 #ffffff22}
+.lab{color:#facc15;font-weight:700;font-size:11px;letter-spacing:1.5px;margin:10px 0 6px;display:block}
+.inp{width:100%;background:#0a1f3a;border:2px solid #2a4a7a;border-radius:14px;padding:14px;font-size:28px;font-weight:900;letter-spacing:8px;text-align:center;color:#fff;outline:none}
 .inp:focus{border-color:#facc15;box-shadow:0 0 0 4px #facc1533}
-.btn{width:100%;margin-top:16px;background:linear-gradient(180deg,#facc15,#eab308);color:#0a1f3a;border:none;border-radius:16px;padding:16px;font-size:18px;font-weight:900;letter-spacing:1px;cursor:pointer;box-shadow:0 8px 20px #facc1544;transition:.2s}
-.btn:active{transform:scale(.98)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.b{border-radius:16px;padding:14px;text-align:center;border:1px solid #ffffff15}
-.b b{display:block;font-size:11px;letter-spacing:1px;color:#7aa0c8;margin-bottom:6px}
-.b span{font-size:20px;font-weight:900}
-.b1{background:#facc1515;border-color:#facc1544;color:#facc15}
-.b2{background:#ffffff0a}
-.hint{margin-top:20px;background:#00000033;border-radius:14px;padding:12px;font-size:12px;color:#7aa0c8;line-height:1.5;text-align:left}
-.footer{max-width:500px;margin:30px auto;text-align:center;color:#4a6a8a;font-size:12px}
+.row{display:flex;gap:6px;margin-top:10px}
+.chip{flex:1;padding:10px 6px;border-radius:12px;border:1px solid #ffffff22;background:#ffffff0a;color:#8aa5c8;font-weight:700;font-size:11px;cursor:pointer;text-align:center}
+.chip.on{background:#facc15;color:#0a1f3a;border-color:#facc15;box-shadow:0 0 12px #facc1544}
+.btn{width:100%;margin-top:12px;background:linear-gradient(180deg,#facc15,#eab308);color:#0a1f3a;border:none;border-radius:14px;padding:14px;font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 8px 20px #facc1544}
+.tabs{display:flex;gap:6px;margin-top:14px}
+.tbtn{flex:1;padding:10px;border-radius:12px;border:1px solid #facc1566;background:#0a1f3a;color:#facc15;font-weight:800;font-size:11px;cursor:pointer;text-align:center}
+.tbtn.on{background:#facc15;color:#0a1f3a}
+.grid10{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
+.cell{background:#0a1f3a;border:1px solid #ffffff15;border-radius:10px;padding:5px;text-align:center}
+.cell b{font-size:11px;display:block;color:#7aa0c8}
+.cell span{font-size:11px;font-weight:900;color:#fff;display:block;margin-top:2px}
+.out{margin-top:14px}
+.group{margin-top:12px}
+.group h4{font-size:10px;letter-spacing:1.2px;color:#7aa0c8;margin-bottom:6px}
+.list{display:flex;flex-wrap:wrap;gap:6px}
+.num{background:#0a1f3a;border:1px solid #ffffff18;border-radius:10px;padding:7px 10px;font-weight:900;font-size:13px;min-width:62px;text-align:center;position:relative}
+.num small{position:absolute;top:-6px;right:-6px;background:#facc15;color:#0a1f3a;font-size:8px;font-weight:900;padding:2px 5px;border-radius:10px}
+.footer{text-align:center;color:#4a6a8a;font-size:10px;margin:20px 0;line-height:1.5}
 </style>
 </head>
 <body>
-<div class="h">
+<div class="wrap">
 <div class="logo">ELQUINI <span>NUMBERS</span> 🎲</div>
-<div class="sub">Conversor Cuaterno · 4 Dígitos</div>
-</div>
+<div class="sub">3 Tablas · Conversor Cuaterno</div>
 <div class="card">
-<label class="lab">INGRESÁ TU NÚMERO</label>
-<input id="q" class="inp" placeholder="6710" maxlength="4" inputmode="numeric" autocomplete="off">
-<button class="btn" onclick="go()">✨ CONVERTIR AHORA</button>
-<div class="grid" id="res" style="display:none">
-<div class="b b1"><b>ORIGINAL</b><span id="r0"></span></div>
-<div class="b b2"><b>INVERSO</b><span id="r1"></span></div>
-<div class="b b2"><b>ORDENADO</b><span id="r2"></span></div>
-<div class="b b2"><b>REDUCIDO</b><span id="r3"></span></div>
+<label class="lab">NÚMERO BASE</label>
+<input id="base" class="inp" placeholder="3587" maxlength="4" inputmode="numeric">
+
+<div class="row">
+<div class="chip on" id="c4" onclick="setC(4)">4 CIFRAS</div>
+<div class="chip" id="c3" onclick="setC(3)">3 CIFRAS</div>
+<div class="chip" id="c2" onclick="setC(2)">2 CIFRAS</div>
 </div>
-<div class="hint">💡 <b>Cómo usar:</b> Escribí 4 números (ej: 6710). Te damos las 4 variantes más jugadas para El Quini. Probá con tu fecha, patente, etc.</div>
+
+<label class="lab">ELEGÍ LA TABLA</label>
+<div class="tabs">
+<div class="tbtn on" id="tb1" onclick="setTabla(1)">TABLA 1<br>0-4-1</div>
+<div class="tbtn" id="tb2" onclick="setTabla(2)">TABLA 2<br>0-1-1</div>
+<div class="tbtn" id="tb3" onclick="setTabla(3)">ESPEJOS<br>0=5</div>
 </div>
-<div class="footer">Hecho con ❤️ para la comunidad quinielera · elchaco22.github.io/elquini-numbers</div>
+
+<div class="grid10" id="vistaTabla"></div>
+
+<button class="btn" onclick="generar()">✨ GENERAR CUATERNOS</button>
+
+<div class="out" id="out"></div>
+</div>
+<div class="footer">Tabla 1: 0-4-1 1-7-0 2-5-9 3-8-8 4-0-7 5-2-6 6-9-5 7-1-4 8-3-3 9-6-2<br>
+Tabla 2: 0-1-1 1-0-0 2-5-7 3-8-0 4-6-9 5-2-7 6-4-9 7-2-5 8-3-0 9-6-4<br>
+Espejos: 0=5 1=6 2=7 3=8 4=9 (y viceversa)<br><br>Hecho con ❤️ para vos · elchaco22.github.io/elquini-numbers</div>
+</div>
 <script>
-const $=id=>document.getElementById(id);
-function go(){
- let v=$('q').value.replace(/\D/g,'').slice(0,4);
- if(v.length<4){$('q').style.borderColor='#ff5555';setTimeout(()=>$('q').style.borderColor='',800);return}
- $('res').style.display='grid';
- $('r0').textContent=v;
- $('r1').textContent=v.split('').reverse().join('');
- $('r2').textContent=v.split('').sort().join('');
- $('r3').textContent=[...new Set(v.split(''))].join('');
+const TABLAS = {
+1: {'0':['4','1'],'1':['7','0'],'2':['5','9'],'3':['8','8'],'4':['0','7'],'5':['2','6'],'6':['9','5'],'7':['1','4'],'8':['3','3'],'9':['6','2']},
+2: {'0':['1','1'],'1':['0','0'],'2':['5','7'],'3':['8','0'],'4':['6','9'],'5':['2','7'],'6':['4','9'],'7':['2','5'],'8':['3','0'],'9':['6','4']},
+3: {'0':['5','5'],'1':['6','6'],'2':['7','7'],'3':['8','8'],'4':['9','9'],'5':['0','0'],'6':['1','1'],'7':['2','2'],'8':['3','3'],'9':['4','4']}
+};
+let tablaActual=1;
+let cifras=4;
+
+function setTabla(n){
+  tablaActual=n;
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tb'+n).classList.add('on');
+  renderTabla();
+  if(document.getElementById('base').value.length>=2) generar();
 }
-$('q').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,4); if(e.target.value.length===4) go()});
-$('q').focus();
+function setC(n){
+  cifras=n;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  document.getElementById('c'+n).classList.add('on');
+  if(document.getElementById('base').value.length>=n) generar();
+}
+function renderTabla(){
+  let t=TABLAS[tablaActual];
+  let html='';
+  for(let d=0; d<=9; d++){
+    let eq=t[d];
+    html+=`<div class="cell"><b>${d}</b><span>${eq[0]} - ${eq[1]}</span></div>`;
+  }
+  document.getElementById('vistaTabla').innerHTML=html;
+}
+function generar(){
+  let base = document.getElementById('base').value.replace(/\D/g,'');
+  if(base.length < cifras){ alert(`Escribí ${cifras} números`); return }
+  let num = base.slice(-cifras);
+  let tabla = TABLAS[tablaActual];
+  let opciones=[];
+  for(let i=0;i<num.length;i++){
+    let dig=num[i];
+    let eq=tabla[dig]||['0','0'];
+    opciones.push([{v:dig,s:3},{v:eq[0],s:2},{v:eq[1],s:1}]);
+  }
+  let results=[];
+  function rec(idx,cur,score){
+    if(idx===opciones.length){ results.push({num:cur.join(''),score:score}); return; }
+    for(let o of opciones[idx]){ rec(idx+1,[...cur,o.v],score+o.s); }
+  }
+  rec(0,[],0);
+  results.sort((a,b)=> b.score - a.score || a.num.localeCompare(b.num));
+  let uniqMap=new Map();
+  for(let r of results) if(!uniqMap.has(r.num)) uniqMap.set(r.num,r);
+  let uniq=Array.from(uniqMap.values());
+  
+  let html='';
+  html+=`<div class="group"><h4>🏆 BORRATINA TOP 5 - TABLA ${tablaActual} (${uniq.length} combinaciones)</h4><div class="list">`;
+  uniq.slice(0,5).forEach(r=> html+=`<div class="num" style="border-color:#facc15aa;color:#facc15">${r.num}<small>${r.score}</small></div>`);
+  html+=`</div></div>`;
+  
+  html+=`<div class="group"><h4>📋 TODOS ORDENADOS POR PUNTAJE</h4><div class="list">`;
+  uniq.forEach(r=>{
+    let col = r.score>=cifras*3-1 ? '#facc15' : '#fff';
+    html+=`<div class="num" style="color:${col}">${r.num}<small>${r.score}</small></div>`;
+  });
+  html+=`</div></div>`;
+
+  let redobles=uniq.filter(r=>/(.)\1/.test(r.num));
+  if(redobles.length){
+    html+=`<div class="group"><h4>🔁 REDOBLES (${redobles.length})</h4><div class="list">`;
+    redobles.slice(0,20).forEach(r=> html+=`<div class="num">${r.num}<small>${r.score}</small></div>`);
+    html+=`</div></div>`;
+  }
+  document.getElementById('out').innerHTML=html;
+}
+
+renderTabla();
+document.getElementById('base').addEventListener('input', e=>{
+  e.target.value=e.target.value.replace(/\D/g,'').slice(0,4);
+  if(e.target.value.length>=2) generar();
+});
+document.getElementById('base').focus();
 </script>
 <script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
+
+            
